@@ -45,3 +45,6 @@ group :development do
   gem 'spring'
 end
 
+# Used for authentication
+gem 'devise'
+
