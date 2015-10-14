@@ -12,7 +12,6 @@ class TransactionsController < ApplicationController
     @transaction = Transaction.new
   end
 
-  # GET /transactions/1/edit
   def edit
   end
 
