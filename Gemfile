@@ -48,3 +48,8 @@ end
 # Used for authentication
 gem 'devise'
 
+# Used for HAML
+
+gem 'simple_form'
+
+
