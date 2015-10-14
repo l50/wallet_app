@@ -2,7 +2,7 @@ class TransactionsController < ApplicationController
   before_action :find_transaction, only: [:show, :edit, :update, :destroy]
 
   def index
-    @transactions = Transaction.all.order("created_at DESC")
+    @transactions = Transaction.where(user_id: current_user).order("created_at DESC")
   end
 
   def show
