@@ -3,8 +3,8 @@ class CreateTransactions < ActiveRecord::Migration
     create_table :transactions do |t|
       t.datetime :date
       t.string :description
-      t.string :Category
-      t.integer :Amount
+      t.string :category
+      t.integer :amount
 
       t.timestamps null: false
     end

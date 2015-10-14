@@ -1,0 +1,14 @@
+- [:notice]
+#index_transactions
+  - @transactions.each do |transaction|
+    %h2= link_to transaction.date.strftime("%A %B %d"), transaction
+    %h3
+      %span Transaction:
+      = transaction.description
+      |
+      %span Category:
+      = transaction.category
+      |
+      %span Amount:
+      = transaction.amount
+= link_to "New Transaction", new_transaction_path

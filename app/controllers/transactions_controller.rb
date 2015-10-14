@@ -1,18 +1,13 @@
 class TransactionsController < ApplicationController
-  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :find_transaction, only: [:show, :edit, :update, :destroy]
 
-  # GET /transactions
-  # GET /transactions.json
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.all.order("created_at DESC")
   end
 
-  # GET /transactions/1
-  # GET /transactions/1.json
   def show
   end
 
-  # GET /transactions/new
   def new
     @transaction = Transaction.new
   end
@@ -21,8 +16,6 @@ class TransactionsController < ApplicationController
   def edit
   end
 
-  # POST /transactions
-  # POST /transactions.json
   def create
     @transaction = Transaction.new(transaction_params)
 
@@ -62,13 +55,12 @@ class TransactionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_transaction
-      @transaction = Transaction.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def transaction_params
-      params.require(:transaction).permit(:date, :description, :Category, :Amount)
-    end
+  def find_transaction
+    @transaction = Transaction.find(params[:id])
+  end
+
+  def transaction_params
+    params.require(:transaction).permit(:date, :description, :category, :amount)
+  end
 end
