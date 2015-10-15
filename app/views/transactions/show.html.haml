@@ -1,10 +1,13 @@
-#transaction
-  %h1 Transaction
-  %p= "Date: #{@transaction.date.time.strftime('%m-%d-%Y %I:%M %p')}"
-  %p= "Description: #{@transaction.description}"
-  %p= "Category: #{@transaction.category}"
-  %p= "Amount: $#{@transaction.amount}"
+.wrapper_with_padding
+  #transaction
+    %h1 Transaction
+    %p= "Date: #{@transaction.date.time.strftime('%m-%d-%Y %I:%M %p')}"
+    %p= "Description: #{@transaction.description}"
+    %p= "Category: #{@transaction.category}"
+    %p= "Amount: $#{@transaction.amount}"
 
-  = link_to "All Transactions", transactions_path
-  = link_to "Edit", edit_transaction_path(@transaction)
-  = link_to "Delete", transaction_path(@transaction), method: :delete, data: { confirm: "Are you sure?"}
+    %br
+    .buttons
+      = link_to "All Transactions", transactions_path, class: "button"
+      = link_to "Edit", edit_transaction_path(@transaction), class: "button"
+      = link_to "Delete", transaction_path(@transaction), method: :delete, data: { confirm: "Are you sure?"}, class: "button"

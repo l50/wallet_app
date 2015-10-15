@@ -1,1 +1,18 @@
-%h1 This is the login placeholder
+#banner
+  .banner_content
+    %h1 Income Keeper
+    %p Your online Wallet Application
+    %button= link_to "Sign Up", new_user_registration_path
+#testimonial
+  .wrapper
+    <h3>Personalized for you</h3><ul class="list-mobile list-with-icons no-margin-bottom">
+    <li class="list-icon bills-calendar">Create budgets that make sense today and set you up for success tomorrow.</li>
+#bottom_cta
+  .wrapper
+    %h3 Sign up for Income Keeper today
+    %p Take hold of your income today!
+    %button= link_to "Sign Up", new_user_registration_path
+    %button= link_to "Log In", new_user_session_path
+
+%footer
+  %p &copy; Jayson Grace
