@@ -11,5 +11,5 @@
             %p.amount= "Amount: $#{transaction.amount}"
     - else
       %h2 Add a transaction
-      %p You have not entered any transactions yet. Please enter a transaction below.
+      %p You have not entered any transactions yet, please use the "New Transaction" button to create one.
       %button= link_to "New Transaction", new_transaction_path
