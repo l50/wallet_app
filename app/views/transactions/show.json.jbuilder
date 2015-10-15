@@ -1,1 +1,1 @@
-json.extract! @transaction, :id, :date, :description, :Category, :Amount, :created_at, :updated_at
+json.extract! @transaction, :id, :date, :description, :category, :amount, :created_at, :updated_at
