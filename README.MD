@@ -26,7 +26,8 @@ Please fork and do a pull request when you've created a feature that you want to
 ### Todo
 - [x] Create styling
 - [] Add Javascript to forms to check for erroneous input
-- [] Create logo
-- [] Move notices to center of screen (creation, deletion, modification)
+- [x] Create logo
+- [] Move notices to center of screen (creation, deletion, modification, sign in, etc.)
+- [] Add more substance to the personalized for you section of login page
 - [] Add in models required by spec
 - [] Push to heroku
