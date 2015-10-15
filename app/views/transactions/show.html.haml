@@ -3,7 +3,7 @@
   %p= "Date: #{@transaction.date.time.strftime('%m-%d-%Y %I:%M %p')}"
   %p= "Description: #{@transaction.description}"
   %p= "Category: #{@transaction.category}"
-  %p= "Amount: #{@transaction.amount}"
+  %p= "Amount: $#{@transaction.amount}"
 
   = link_to "All Transactions", transactions_path
   = link_to "Edit", edit_transaction_path(@transaction)
