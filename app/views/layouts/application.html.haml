@@ -3,7 +3,10 @@
 %head
   %title IncomeKeeper | Your Wallet Application
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  -# This resolves the weird multiple confirm errors:
+  = javascript_include_tag 'application', 'data-turbolinks-eval' => false
+  -# This needs to be commented out as well for the aforementioned reason:
+  -#= javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
 %body
   %header
