@@ -5,14 +5,21 @@
     %button= link_to "Sign Up", new_user_registration_path
 #factoids
   .wrapper
-    <h3>Personalized for you</h3><ul class="list-mobile list-with-icons no-margin-bottom">
-    <li class="list-icon bills-calendar">Create budgets that make sense today and set you up for success tomorrow.</li>
+    .callout
+      %h3 Personalized for you
+      %i.fa.fa-calculator
+        Control and optimize your spending.
+      %br/
+      %i.fa.fa-university
+        Save for your next vacation with your family.
+      %i.fa.fa-credit-card
+        Ensure you're always in the black today for a better tomorrow.
+
 #bottom_cta
   .wrapper
     %h3 Sign up for Income Keeper today
     %p Take hold of your income today!
     %button= link_to "Sign Up", new_user_registration_path
     %button= link_to "Log In", new_user_session_path
-
 %footer
   %p &copy; Jayson Grace
