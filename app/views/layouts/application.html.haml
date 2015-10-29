@@ -1,25 +1,21 @@
 !!!
 %html
-%head
-  %title IncomeKeeper | Your Wallet Application
-  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-  -# This resolves the weird multiple confirm errors:
-  = javascript_include_tag 'application', 'data-turbolinks-eval' => false
-  %link{:rel => "stylesheet", :href => "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"}/
-  -# This needs to be commented out as well for the aforementioned reason:
-  -#= javascript_include_tag 'application', 'data-turbolinks-track' => true
-  = csrf_meta_tags
-%body
-  %header
-    .header_inner
-      = link_to image_tag('logo.svg'), root_path, id: 'logo'
-      %nav
-        - if user_signed_in?
-          = link_to "New Transaction", new_transaction_path
-          = link_to "Sign Out", destroy_user_session_path, method: :delete
-        - else
-          = link_to "Log In", new_user_session_path
-  %p.notice= notice
-  %p.alert= alert
-
-  = yield
+  %head
+    %title IncomeKeeper | Your Wallet Application
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    %link{:rel => "stylesheet", :href => "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"}/
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %header
+      .header_inner
+        = link_to image_tag('logo.svg'), root_path, id: 'logo'
+        %nav
+          - if user_signed_in?
+            = link_to "New Transaction", new_transaction_path
+            = link_to "Sign Out", destroy_user_session_path, method: :delete
+          - else
+            = link_to "Log In", new_user_session_path
+    %p.notice= notice
+    %p.alert= alert
+    = yield

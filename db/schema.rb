@@ -11,25 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014231035) do
+ActiveRecord::Schema.define(version: 20151029191924) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.integer  "transaction_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-  end
-
-  add_index "categories", ["transaction_id"], name: "index_categories_on_transaction_id"
-
-  create_table "costs", force: :cascade do |t|
-    t.integer  "amount"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "incomes", force: :cascade do |t|
-    t.integer  "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,12 +22,16 @@ ActiveRecord::Schema.define(version: 20151014231035) do
   create_table "transactions", force: :cascade do |t|
     t.datetime "date"
     t.string   "description"
-    t.string   "category"
+    t.integer  "category_id"
     t.integer  "amount"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "transaction_type"
     t.integer  "user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
+
+  add_index "transactions", ["category_id"], name: "index_transactions_on_category_id"
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

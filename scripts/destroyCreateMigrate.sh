@@ -8,4 +8,6 @@
 #
 # Jayson Grace, jayson.e.grace@gmail.com, 10/14/2015
 #
-rake db:drop db:create db:migrate
+rake db:drop 
+rake db:create 
+rake db:migrate

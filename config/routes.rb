@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
+  resources :categories
+  resources :transactions
+  resources :categories
+  resources :categories
+  resources :categories
+  resources :categories
   devise_for :users
   get 'login/index'
-  resources :transactions
 
   authenticated :user do
     root 'transactions#index', as: "authenticated_root"
   end
 
   root 'login#index'
-  resources :costs
-  resources :incomes
-  resources :categories
 end

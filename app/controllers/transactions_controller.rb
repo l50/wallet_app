@@ -1,22 +1,34 @@
 class TransactionsController < ApplicationController
-  before_action :find_transaction, only: [:show, :edit, :update, :destroy]
+  before_action :set_transaction, only: [:show, :edit, :update, :destroy]
 
+  # GET /transactions
+  # GET /transactions.json
   def index
-    @transactions = Transaction.where(user_id: current_user).order("created_at DESC")
+    @transactions = Transaction.all
   end
 
+  # GET /transactions/1
+  # GET /transactions/1.json
   def show
   end
 
+  # GET /transactions/new
   def new
-    @transaction = current_user.transactions.build
+    @transaction = Transaction.new
+    @transaction_types = Transaction.transaction_types
   end
 
+  # GET /transactions/1/edit
   def edit
+    @transaction       = Transaction.find params[:id]
+    @transaction_types = Transaction.transaction_types
   end
 
+  # POST /transactions
+  # POST /transactions.json
   def create
     @transaction = current_user.transactions.build(transaction_params)
+    # @category = current_user.transactions.category
 
     respond_to do |format|
       if @transaction.save
@@ -32,6 +44,8 @@ class TransactionsController < ApplicationController
   # PATCH/PUT /transactions/1
   # PATCH/PUT /transactions/1.json
   def update
+    @transaction       = Transaction.find params[:id]
+    @transaction_types = Transaction.transaction_types
     respond_to do |format|
       if @transaction.update(transaction_params)
         format.html { redirect_to @transaction, notice: 'Transaction was successfully updated.' }
@@ -54,12 +68,13 @@ class TransactionsController < ApplicationController
   end
 
   private
-
-  def find_transaction
+  # Use callbacks to share common setup or constraints between actions.
+  def set_transaction
     @transaction = Transaction.find(params[:id])
   end
 
+  # Never trust parameters from the scary internet, only allow the white list through.
   def transaction_params
-    params.require(:transaction).permit(:date, :description, :category, :amount)
+    params.require(:transaction).permit(:date, :description, :category_id, :amount, :transaction_type, :user_id)
   end
 end

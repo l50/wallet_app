@@ -1,4 +1,4 @@
 class Transaction < ActiveRecord::Base
+  belongs_to :category
   belongs_to :user
-  has_many :categories, dependent: :destroy
 end
