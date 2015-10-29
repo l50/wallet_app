@@ -2,7 +2,11 @@
   = f.input :date, order: [:month, :day, :year], ampm: true
   %br/
   = f.input :description, label: "Transaction Description: ", input_html: {class: "form-control" }
-  = f.input :category, label: "Category: ", input_html: {class: "form-control" }
-  = f.input :amount, label: "Cost: ", input_html: {class: "form-control" }
+  = f.collection_select(:category_id, Category.all, :id, :name, { prompt: 'Select Category', selected: @transaction.category_id},
+  {class: 'form-control'})
+  %br/
+  = f.select :transaction_type, options_for_select(@transaction_types.collect { |s| [s[0].humanize, s[0]] },
+  selected:@transaction.transaction_type), label: "Type", input_html: { class: "form-control" }
+
   %br/
   = f.button :submit, class:"button"
