@@ -6,6 +6,9 @@
     %link{:rel => "stylesheet", :href => "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"}/
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+  .wrapper
+    %p.notice= notice
+    %p.alert= alert
   %body
     %header
       .header_inner
@@ -16,6 +19,4 @@
             = link_to "Sign Out", destroy_user_session_path, method: :delete
           - else
             = link_to "Log In", new_user_session_path
-    %p.notice= notice
-    %p.alert= alert
     = yield
