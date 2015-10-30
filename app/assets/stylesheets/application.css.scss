@@ -6,3 +6,11 @@
 @import 'global';
 @import 'transactions';
 @import 'login';
+
+div.centre
+{
+  width: 100px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}

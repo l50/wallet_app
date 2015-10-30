@@ -13,5 +13,6 @@
 #categories
   = simple_form_for([@category, Category.new], remote: false, html: {class: 'form-horizontal'}) do |f|
     = f.input :name, label: "New Category", input_html: {class: "form-control"}
+    = hidden_field_tag(:transaction_id, @transaction.id)
     = f.button :submit, "Create Category", class:"button"
 
