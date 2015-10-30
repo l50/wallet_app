@@ -25,12 +25,11 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @transaction = Transaction.find(other_params)
-    @category    = Category.new(category_params)
+    @category = Category.new(category_params)
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @transaction, notice: 'Category was successfully created.' }
+        format.html { redirect_to @category, notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
@@ -72,9 +71,5 @@ class CategoriesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def category_params
     params.require(:category).permit(:name)
-  end
-
-  def other_params
-    params.require(:transaction_id)
   end
 end

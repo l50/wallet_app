@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+  .wrapper
+    - [:notice]
+    #categories.clearfix
+      - unless @categories.blank?
+        - @categories.each do |category|
+          %a{ href: (url_for [category])}
+            .category
+              %p.name= "Name: #{category.name}"
+      - else
+        %h2 Add a category
+        %p You have not entered any categories yet, please use the "New category" button to create one.
+        %button= link_to "New category", new_category_path
