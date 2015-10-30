@@ -1,24 +1,25 @@
 .wrapper_with_padding
   #category
-    %h1 Category
-    %h3= @category.name
-    %table
+    %h1= "Category: #{@category.name}"
+    %h2= "Associated Transactions"
+    %table{:style=>"border: 1px; width: 100%"}
       %thead
         %tr
-          %th Transaction Description
-          %th Transaction Amount
-          %th Transaction Type
-        %tbody
+          %th Description
+          %th Category
+          %th Amount
+          %th Income/Cost
+      %tbody
         - @category.transactions.each do |transaction|
           %tr
             %td= link_to transaction.description, transaction
+            %td= transaction.category.name
             %td= transaction.amount
             %td= transaction.transaction_type
             %td= link_to 'Edit Transaction', edit_transaction_path(transaction)
             %td= link_to 'Delete Transaction', transaction, method: :delete, data: { confirm: 'Are you sure?' }
-
+    %br/
     %br/
     .buttons
       = link_to "All Categories", categories_path, class: "button"
       = link_to "Edit", edit_category_path(@category), class: "button"
-      = link_to "Delete", category_path(@category), method: :delete, data: { confirm: "Are you sure?"}, class: "button"

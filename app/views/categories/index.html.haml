@@ -1,6 +1,9 @@
 !!!
 %html
   %head
+  #category
+    %br/
+    %h1= "Categories:"
   .wrapper
     - [:notice]
     #categories.clearfix
@@ -8,7 +11,7 @@
         - @categories.each do |category|
           %a{ href: (url_for [category])}
             .category
-              %p.name= "Name: #{category.name}"
+              %p.name= "#{category.name}"
       - else
         %h2 Add a category
         %p You have not entered any categories yet, please use the "New category" button to create one.
