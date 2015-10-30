@@ -1,0 +1,25 @@
+#category
+  %h2 Category:
+  %h2= @category.name
+  %table
+    %thead
+      %tr
+        %th Transaction Description
+        %th Transaction Amount
+        %th Transaction Type
+      %tbody
+      - @category.transactions.each do |transaction|
+        %tr
+          %td= link_to transaction.description, transaction
+          %td= transaction.amount
+          %td= transaction.transaction_type
+          %td= link_to 'Edit Transaction', edit_transaction_path(transaction)
+          %td= link_to 'Delete Transaction', transaction, method: :delete, data: { confirm: 'Are you sure?' }
+
+
+  %br/
+  = link_to 'Edit', edit_category_path(@category)
+  |
+  = link_to 'Categories', categories_path
+  |
+  = link_to 'Transactions', transactions_path

@@ -3,8 +3,9 @@
     %h1 Transaction
     %p= "Date: #{@transaction.date.time.strftime('%m-%d-%Y %I:%M %p')}"
     %p= "Description: #{@transaction.description}"
-    %p= "Category: #{@transaction.category}"
-    %p= "Amount: $#{@transaction.amount}"
+    %p= "Category: #{@transaction.category.name}"
+    %p= "Amount: #{'-' if !@transaction.transaction_type.eql? 'income'}$#{@transaction.amount}"
+    %p= "Income/Cost: #{@transaction.transaction_type.capitalize}"
 
     %br
     .buttons

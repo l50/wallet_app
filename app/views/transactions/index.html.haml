@@ -1,4 +1,5 @@
 .wrapper_with_padding
+
   - [:notice]
   #transactions.clearfix
     - unless @transactions.blank?
@@ -7,8 +8,9 @@
           .transaction
             %p.date= transaction.date.strftime('%m-%d-%Y %I:%M %p')
             %p.description= "Description: #{transaction.description}"
-            %p.category= "Category: #{transaction.category}"
-            %p.amount= "Amount: $#{transaction.amount}"
+            %p.category= "Category: #{transaction.category.name}"
+            %p.amount= "Amount: #{'-' if !transaction.transaction_type.eql? 'income'}$#{transaction.amount}"
+            %p.transaction_type= "Income/Cost: #{transaction.transaction_type.capitalize}"
     - else
       %h2 Add a transaction
       %p You have not entered any transactions yet, please use the "New Transaction" button to create one.

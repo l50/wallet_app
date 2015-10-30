@@ -4,23 +4,24 @@ class TransactionsController < ApplicationController
   # GET /transactions
   # GET /transactions.json
   def index
-    @transactions = Transaction.all
+    @transactions = Transaction.where(user_id: current_user).order("created_at DESC")
   end
 
   # GET /transactions/1
   # GET /transactions/1.json
   def show
+    @transaction = set_transaction
   end
 
   # GET /transactions/new
   def new
-    @transaction = Transaction.new
+    @transaction       = current_user.transactions.build
     @transaction_types = Transaction.transaction_types
   end
 
   # GET /transactions/1/edit
   def edit
-    @transaction       = Transaction.find params[:id]
+    @transaction       = set_transaction
     @transaction_types = Transaction.transaction_types
   end
 
@@ -28,7 +29,6 @@ class TransactionsController < ApplicationController
   # POST /transactions.json
   def create
     @transaction = current_user.transactions.build(transaction_params)
-    # @category = current_user.transactions.category
 
     respond_to do |format|
       if @transaction.save
@@ -44,7 +44,7 @@ class TransactionsController < ApplicationController
   # PATCH/PUT /transactions/1
   # PATCH/PUT /transactions/1.json
   def update
-    @transaction       = Transaction.find params[:id]
+    @transaction       = set_transaction
     @transaction_types = Transaction.transaction_types
     respond_to do |format|
       if @transaction.update(transaction_params)
