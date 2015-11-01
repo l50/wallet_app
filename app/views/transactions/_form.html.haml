@@ -3,11 +3,8 @@
   %br/
   = f.input :description, label: "Transaction Description: ", input_html: { class: "form-control" }
   = f.input :amount, label: "Value: ", input_html: { class: "form-control" }
-  = f.collection_select(:category_id, Category.all, :id, :name, { prompt: 'Select Category', selected: @transaction.category_id},
-  {class: 'form-control'})
+  = f.collection_select(:category_id, Category.all, :id, :name, { prompt: 'Select Category'}, {class: 'form-control'})
   %br/
-  = f.select :transaction_type, options_for_select(@transaction_types.collect { |s| [s[0].humanize, s[0]] },
-  selected:@transaction.transaction_type), input_html: { class: "form-control" }
-  %br/
-  = f.button :submit, class:"button"
-
+  = f.input :transaction_type, label: "Transaction Type: ", as: :select, collection: Transaction.transaction_types.keys
+  .to_a
+  = f.button :submit, class:"button", data: { disable_with: "Creating New Transaction..." }
