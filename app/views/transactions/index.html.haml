@@ -6,7 +6,8 @@
     #div.centre
       %h1= "Total Spent: $#{Transaction.where(:transaction_type => 0).sum(:amount)} | Total Income: $#{Transaction.where(:transaction_type => 1).sum(:amount)}"
       - if (Transaction.where(:transaction_type => 0).sum(:amount) > Transaction.where(:transaction_type => 1).sum(:amount))
-        %h2= "Danger: You need to make some money and stop spending it!"
+        #warning.h2
+          %h2= "Danger: You need to make some money and stop spending it!"
     #transactions.clearfix
       - unless @transactions.blank?
         - @transactions.each do |transaction|
