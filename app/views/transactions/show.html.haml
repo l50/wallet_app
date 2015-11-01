@@ -3,7 +3,7 @@
     %h1 Transaction
     %p= "Date: #{@transaction.date.time.strftime('%m-%d-%Y %I:%M %p')}"
     %p= "Description: #{@transaction.description}"
-    %p= "Category: #{@transaction.category.name}"
+    = link_to "Category: #{@transaction.category.name}", @transaction.category
     %p= "Amount: #{'-' if !@transaction.transaction_type.eql? 'income'}$#{@transaction.amount}"
     %p= "Income/Cost: #{@transaction.transaction_type.capitalize}"
 
