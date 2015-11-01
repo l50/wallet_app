@@ -15,7 +15,7 @@
             %td= link_to transaction.description, transaction
             %td= transaction.category.name
             %td= transaction.amount
-            %td= transaction.transaction_type
+            %td= transaction.transaction_type.capitalize
             %td= link_to 'Edit Transaction', edit_transaction_path(transaction)
             %td= link_to 'Delete Transaction', transaction, method: :delete, data: { confirm: 'Are you sure?' }
     %br/
