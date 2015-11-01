@@ -14,8 +14,11 @@ git clone https://github.com/l50/wallet_app.git <name of folder you choose> && c
 ```bash
 rake db:migrate
 ```
-
-3. Run the server:
+3. Create Test Data:
+```bash
+rake db:seed
+```
+4. Run the server:
 ```bash
 rails s
 ```
@@ -25,9 +28,9 @@ Please fork and do a pull request when you've created a feature that you want to
 
 ### Todo
 - [x] Create styling
-- [] Add Javascript to forms to check for erroneous input
 - [x] Create logo
-- [] Move notices to center of screen (creation, deletion, modification, sign in, etc.)
 - [x] Add more substance to the personalized for you section of login page
-- [] Add in models required by spec
+- [x] Add in models required by spec
+- [x] Fix validations
+- [x] Create seed data
 - [] Push to heroku
