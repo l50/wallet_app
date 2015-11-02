@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.3'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
@@ -42,4 +44,12 @@ gem 'simple_form'
 # Used for HAML
 gem 'haml'
 
+group :development do
+  gem 'sqlite3'
+end
 
+# For Heroku
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end

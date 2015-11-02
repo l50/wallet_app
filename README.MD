@@ -33,4 +33,5 @@ Please fork and do a pull request when you've created a feature that you want to
 - [x] Add in models required by spec
 - [x] Fix validations
 - [x] Create seed data
-- [] Push to heroku
+- [x] Push to heroku
+- [x] Create favicon icon and add to project
