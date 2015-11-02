@@ -8,19 +8,19 @@ Wallet app for Web Architecture and Cloud Computing class at UNM (ECE 495/595) b
 
 ## Instructions
 
-1. Clone the repo:
+Clone the repo:
 ```bash
 git clone https://github.com/l50/wallet_app.git <name of folder you choose> && cd <name of folder you chose>
 ```
-2. Set up the database:
+Set up the database:
 ```bash
 rake db:migrate
 ```
-3. Create Test Data:
+Create Test Data:
 ```bash
 rake db:seed
 ```
-4. Run the server:
+Run the server:
 ```bash
 rails s
 ```
